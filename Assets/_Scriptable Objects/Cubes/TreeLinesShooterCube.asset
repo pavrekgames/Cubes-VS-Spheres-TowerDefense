@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f741db64b28e0243929be282a0ae3cd, type: 3}
+  m_Name: TreeLinesShooterCube
+  m_EditorClassIdentifier: 
+  health: 100
+  cost: 325
+  timeToBuy: 20
+  countdown: 1.5
+  cubePrefab: {fileID: 8962819577797786625, guid: 6149ab1499f10254da993d85bfb9ccff, type: 3}
