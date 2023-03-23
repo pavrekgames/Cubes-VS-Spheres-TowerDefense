@@ -11,18 +11,16 @@ public class DoubleShooterCube : SimpleShooterCube
 
         if (hit.collider.GetComponent<BaseSphere>())
         {
-            StartCoroutine(Shoot());
+            StartCoroutine(DoubleShoot());
         }
     }
 
-    private IEnumerator Shoot()
+    private IEnumerator DoubleShoot()
     {
-        GameObject newBullet = Instantiate(bulletPrefab, placeForBullet.position, Quaternion.identity, bulletsParent);
-        newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
+        Shoot();
         yield return new WaitForSeconds(0.5f);
-        GameObject newBullet2 = Instantiate(bulletPrefab, placeForBullet.position, Quaternion.identity, bulletsParent);
-        newBullet2.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
-        StopCoroutine(Shoot());
+        Shoot();
+        StopCoroutine(DoubleShoot());
     }
 
 }

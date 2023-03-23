@@ -8,4 +8,11 @@ public class FreezeShooterCube : SimpleShooterCube
     {
         base.Update();
     }
+
+    protected override void Shoot()
+    {
+        GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.freezeBullets, bulletsObjectPool.bulletPools[1]);
+        SetBullet(newBullet);
+    }
+
 }

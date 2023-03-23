@@ -16,11 +16,11 @@ public class ArmoredSphere : BaseSphere
     protected override void Update()
     {
         base.Update();
-        SphereState();
+        UpdateSphereState();
 
     }
 
-    protected virtual void SphereState()
+    protected virtual void UpdateSphereState()
     {
         if(health <= 100 && armorSpriteRenderer.enabled == true)
         {

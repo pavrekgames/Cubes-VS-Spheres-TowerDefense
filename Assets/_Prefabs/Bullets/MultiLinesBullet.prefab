@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   bulletRenderer: {fileID: 7879167640737473486}
+  defaultColor: {r: 0.21176471, g: 0.6784314, b: 0.09411765, a: 1}
   bulletSpeed: 15
   lineTarget: {fileID: 0}
   hasLineTarget: 0

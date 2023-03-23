@@ -43,12 +43,12 @@ public class MultiLinesBullet : BaseBullet
             {
                 collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
                 lineTarget = null;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {
                 lineTarget = null;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 

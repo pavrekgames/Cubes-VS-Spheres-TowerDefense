@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SimpleShooterCube : BaseCube
 {
+    [Header("Bullet Object Pooling")]
+    [SerializeField] protected BulletsObjectPool bulletsObjectPool;
+
     [Header("Bullets Attributes")]
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected Transform placeForBullet;
@@ -16,6 +19,7 @@ public class SimpleShooterCube : BaseCube
     protected override void Start()
     {
         base.Start();
+        bulletsObjectPool = BulletsObjectPool.instance;
         bulletsParent = GameObject.Find("BULLETS").transform;
         InvokeRepeating("UpdateTarget", 0, countdown);
     }
@@ -31,10 +35,24 @@ public class SimpleShooterCube : BaseCube
 
         if (hit.collider.GetComponent<BaseSphere>())
         {
-            GameObject newBullet = Instantiate(bulletPrefab, placeForBullet.position, Quaternion.identity, bulletsParent);
-            newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
+            Shoot();
         }
 
+    }
+
+    protected virtual void Shoot()
+    {
+        GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.simpleBullets, bulletsObjectPool.bulletPools[0]);
+        SetBullet(newBullet);
+        
+    }
+
+    protected void SetBullet(GameObject bullet)
+    {
+        bullet.transform.position = placeForBullet.transform.position;
+        bullet.transform.rotation = placeForBullet.transform.rotation;
+        bullet.SetActive(true);
+        bullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
     }
 
 }

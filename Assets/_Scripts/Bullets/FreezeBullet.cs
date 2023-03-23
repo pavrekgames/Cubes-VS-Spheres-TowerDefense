@@ -14,11 +14,11 @@ public class FreezeBullet : BaseBullet
             {
                 collision.GetComponent<BaseSphere>().FreezeState();
                 collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

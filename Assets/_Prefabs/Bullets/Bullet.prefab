@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   bulletRenderer: {fileID: 3298056491572935767}
+  defaultColor: {r: 0.33333334, g: 0.99215686, b: 0.16470589, a: 1}

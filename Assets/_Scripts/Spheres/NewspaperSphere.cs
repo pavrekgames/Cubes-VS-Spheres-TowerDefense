@@ -10,7 +10,7 @@ public class NewspaperSphere : ArmoredSphere
         base.Update();
     }
 
-    protected override void SphereState()
+    protected override void UpdateSphereState()
     {
         if (health <= 100 && armorSpriteRenderer.enabled == true)
         {

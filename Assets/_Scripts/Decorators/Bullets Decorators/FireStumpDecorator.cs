@@ -7,7 +7,7 @@ public class FireStumpDecorator : BulletDecorator
      public int bonusDamage = 10;
      public Color bulletDecoratorColor;
 
-    public void Start()
+    protected override void OnEnable()
     {
         bulletRenderer = GetComponent<SpriteRenderer>();
 
@@ -30,11 +30,11 @@ public class FireStumpDecorator : BulletDecorator
                 damage = bonusDamage;
                 bulletRenderer.color = bulletDecoratorColor;
                 collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

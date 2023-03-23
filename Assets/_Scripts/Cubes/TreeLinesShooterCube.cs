@@ -29,17 +29,19 @@ public class TreeLinesShooterCube : SimpleShooterCube
             MultiLinesShoot(placeforBullet3, downLineTarget);
         }
     }
-
-    private void Shoot()
-    {
-        GameObject newBullet = Instantiate(bulletPrefab, placeForBullet.position, Quaternion.identity, bulletsParent);
-        newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
-    }
-
     private void MultiLinesShoot(Transform placeforBullet, Transform lineTarget)
     {
-        GameObject newBullet = Instantiate(mulitLinesBulletPrefab, placeforBullet.position, Quaternion.identity, bulletsParent);
-        newBullet.GetComponent<MultiLinesBullet>().lineTarget = lineTarget;
+        GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.multiLinesbullets, bulletsObjectPool.bulletPools[2]);
+        SetMultiLinesBullet(newBullet, placeforBullet, lineTarget);
+    }
+
+    private void SetMultiLinesBullet(GameObject bullet,Transform placeForBullet, Transform lineTarget)
+    {
+        bullet.transform.position = placeForBullet.transform.position;
+        bullet.transform.rotation = placeForBullet.transform.rotation;
+        bullet.SetActive(true);
+        bullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * bulletSpeed;
+        bullet.GetComponent<MultiLinesBullet>().lineTarget = lineTarget;
     }
 
 }
