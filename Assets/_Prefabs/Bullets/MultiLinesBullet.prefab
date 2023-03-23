@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4073835330115559499}
   m_Layer: 8
   m_Name: MultiLinesBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  bulletRenderer: {fileID: 7879167640737473486}
   bulletSpeed: 15
   lineTarget: {fileID: 0}
   hasLineTarget: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cube
   - Sphere
+  - Bullet
   layers:
   - Default
   - TransparentFX

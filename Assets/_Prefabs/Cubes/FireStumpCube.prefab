@@ -147,6 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817bcf39537e69a439c775941c371b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeData: {fileID: 11400000, guid: c3c8ff15884769d4a8d2295b2a6a31ad, type: 2}
+  health: 0
+  countdown: 0
+  bonusDamage: 10
+  bulletDecoratorColor: {r: 0.9607843, g: 0.6392157, b: 0.003921569, a: 1}
 --- !u!1 &7620120215482816161
 GameObject:
   m_ObjectHideFlags: 0

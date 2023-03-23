@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiLinesBullet : MonoBehaviour
+public class MultiLinesBullet : BaseBullet
 {
-    [SerializeField] private int damage;
     public int bulletSpeed;
     public Transform lineTarget;
     [SerializeField] private bool hasLineTarget = false;
@@ -36,15 +35,22 @@ public class MultiLinesBullet : MonoBehaviour
 
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BaseSphere>())
+        if (collision.CompareTag("Sphere"))
         {
-            collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
+            if (collision.GetComponent<BaseSphere>())
+            {
+                collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
+                lineTarget = null;
+                Destroy(gameObject);
+            }
+            else
+            {
+                lineTarget = null;
+                Destroy(gameObject);
+            }
         }
-
-        lineTarget = null;
-        Destroy(gameObject);
 
     }
 }

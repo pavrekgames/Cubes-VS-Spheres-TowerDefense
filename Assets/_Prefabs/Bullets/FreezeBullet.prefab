@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8778953897391073500}
   m_Layer: 8
   m_Name: FreezeBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  bulletRenderer: {fileID: 5053742630542191517}

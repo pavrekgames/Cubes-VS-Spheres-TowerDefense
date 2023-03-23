@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class FireStumpCube : MonoBehaviour
+public class FireStumpCube : BaseCube
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private int bonusDamage = 10;
+    [SerializeField] private Color bulletDecoratorColor;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Bullet"))
+        {
+            FireStumpDecorator decoratedBullet = collision.AddComponent<FireStumpDecorator>();
+            decoratedBullet.bonusDamage = bonusDamage;
+            decoratedBullet.bulletDecoratorColor = bulletDecoratorColor;
+            decoratedBullet.SetBullet();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

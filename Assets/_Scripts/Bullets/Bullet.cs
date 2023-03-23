@@ -2,19 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : BaseBullet
 {
-    [SerializeField] private int damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BaseSphere>())
-        {
-            collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
-        }
-
-        Destroy(gameObject);
-
+        base.OnTriggerEnter2D(collision);
     }
 
 }

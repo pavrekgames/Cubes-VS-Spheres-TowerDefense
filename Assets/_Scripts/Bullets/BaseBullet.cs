@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreezeBullet : BaseBullet
+public abstract class BaseBullet : MonoBehaviour
 {
+    [SerializeField] protected int damage;
+    [SerializeField] protected SpriteRenderer bulletRenderer;
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Sphere"))
         {
             if (collision.GetComponent<BaseSphere>())
             {
-                collision.GetComponent<BaseSphere>().FreezeState();
                 collision.GetComponent<BaseSphere>().ReceiveDamage(damage);
                 Destroy(gameObject);
             }
@@ -22,4 +22,5 @@ public class FreezeBullet : BaseBullet
             }
         }
     }
+
 }
