@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private CubeFactoryTest cubeFactory;
+    [SerializeField] private CubeFactory cubeFactory;
     public GameObject currentCube;
     void Start()
     {
-        cubeFactory = CubeFactoryTest.instance;
+        cubeFactory = CubeFactory.instance;
     }
 
     private void OnMouseEnter()

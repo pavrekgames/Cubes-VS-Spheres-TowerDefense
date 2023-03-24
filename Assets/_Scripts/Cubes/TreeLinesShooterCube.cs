@@ -26,12 +26,9 @@ public class TreeLinesShooterCube : SimpleShooterCube
 
         if (hit.collider != null || hitUp.collider != null || hitDown.collider != null)
         {
-            if (hit.collider.GetComponent<BaseSphere>() || hitUp.collider.GetComponent<BaseSphere>() || hitDown.collider.GetComponent<BaseSphere>())
-            {
                 Shoot();
                 MultiLinesShoot(placeforBullet2, upLineTarget);
                 MultiLinesShoot(placeforBullet3, downLineTarget);
-            }
         }
     }
     private void MultiLinesShoot(Transform placeforBullet, Transform lineTarget)

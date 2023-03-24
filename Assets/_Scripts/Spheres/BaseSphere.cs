@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class BaseSphere : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public abstract class BaseSphere : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip eatSound;
 
+    public static event Action OnGotFinishLine;
     public enum SphereState
     {
         Move,
@@ -94,8 +96,6 @@ public abstract class BaseSphere : MonoBehaviour
         if(health <= 0) { Destroy(gameObject); }
     }
 
-    
-
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Cube"))
@@ -106,7 +106,11 @@ public abstract class BaseSphere : MonoBehaviour
                 currentCube = collision.GetComponent<BaseCube>();
                 Attack();
             }
-        } 
+        }
+        else if (collision.CompareTag("FinishLine"))
+        {
+            GotTheFinishLine();
+        }
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
@@ -129,6 +133,11 @@ public abstract class BaseSphere : MonoBehaviour
         runSpeed = sphereData.freezeRunSpeed;
         currentSpeed = walkSpeed;
         attackFrequency = sphereData.freezeAttackFrequency;
+    }
+
+    private void GotTheFinishLine()
+    {
+        OnGotFinishLine?.Invoke();
     }
 
 }

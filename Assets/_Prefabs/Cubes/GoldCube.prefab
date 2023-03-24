@@ -102,6 +102,7 @@ MonoBehaviour:
   cubeData: {fileID: 11400000, guid: 670cab06974a2434682403e82de38394, type: 2}
   health: 0
   countdown: 0
+  dieAudioSource: {fileID: 471856486399392587, guid: 1e22cf75cd44597489884af92f70f2cf, type: 3}
   cubeCurrency: {fileID: 4965711301395167774, guid: 8963d9cf8e6e13a4ebb1a198ac7cb9b9, type: 3}
   spawnForce: 3
   cubeDirectionIndex: 1

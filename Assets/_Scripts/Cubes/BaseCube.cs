@@ -8,6 +8,8 @@ public abstract class BaseCube : MonoBehaviour
 
     [SerializeField] protected float health;
     [SerializeField] protected float countdown;
+
+    [SerializeField] protected GameObject dieAudioSource;
     protected virtual void Start()
     {
         health = cubeData.health;
@@ -23,6 +25,7 @@ public abstract class BaseCube : MonoBehaviour
     {
         if(health <= 0)
         {
+            GameObject newAudioSource = Instantiate(dieAudioSource, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

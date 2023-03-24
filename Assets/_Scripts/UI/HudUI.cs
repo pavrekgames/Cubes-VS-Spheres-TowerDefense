@@ -11,7 +11,7 @@ public class HudUI : MonoBehaviour
     void Start()
     {
         CubeCurrency.OnGoldCubeCollected += UpdatecCurrentGold;
-        CubeFactoryTest.OnCubeBuilt += UpdatecCurrentGold;
+        CubeFactory.OnCubeBuilt += UpdatecCurrentGold;
     }
 
     void UpdatecCurrentGold()

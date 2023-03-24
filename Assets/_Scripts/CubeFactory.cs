@@ -4,9 +4,9 @@ using UnityEngine;
 using System;
 using UnityEditor.Experimental.GraphView;
 
-public class CubeFactoryTest : MonoBehaviour
+public class CubeFactory : MonoBehaviour
 {
-    public static CubeFactoryTest instance;
+    public static CubeFactory instance;
     [SerializeField] protected AudioSource audioSource;
     [SerializeField] protected AudioClip plantSound;
 
@@ -29,7 +29,7 @@ public class CubeFactoryTest : MonoBehaviour
 
    public void BuildCube()
     {
-        if (currentCube != null)
+        if (currentCube != null && GameManager.isGamePause == false)
         {
             if (GameManager.currentGold >= currentCube.cost)
             {

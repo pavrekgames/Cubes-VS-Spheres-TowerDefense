@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    [SerializeField] private CubeFactoryTest cubeFactory;
+    [SerializeField] private CubeFactory cubeFactory;
     [SerializeField] CubeData cubeData;
     [SerializeField] private bool isButtonActive = true;
 
@@ -20,12 +20,12 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     void Start()
     {
-        timeToBuy = 0;
-        cubeFactory = CubeFactoryTest.instance;
+        timeToBuy = cubeData.startTimeToBuy;
+        cubeFactory = CubeFactory.instance;
         defaultColor = buttonImage.color;
 
-        CubeFactoryTest.OnCubeBuilt += SetTimeToBuy;
-        CubeFactoryTest.OnCubeBuilt += SetButton;
+        CubeFactory.OnCubeBuilt += SetTimeToBuy;
+        CubeFactory.OnCubeBuilt += SetButton;
         CubeCurrency.OnGoldCubeCollected += SetButton;
     }
 
@@ -48,27 +48,36 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+        if(GameManager.isGamePause == false)
         {
-            buttonImage.color = hoverColor;
-        } 
+            if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+            {
+                buttonImage.color = hoverColor;
+            }
+        }  
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+        if(GameManager.isGamePause == false)
         {
-            cubeFactory.currentCube = cubeData;
-        }  
+            if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+            {
+                cubeFactory.currentCube = cubeData;
+            }
+        }
+   
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+        if(GameManager.isGamePause == false)
         {
-            buttonImage.color = defaultColor;
+            if (isButtonActive && GameManager.currentGold >= cubeData.cost)
+            {
+                buttonImage.color = defaultColor;
+            }
         }
-        
     }
 
     private void SetTimeToBuy()
@@ -84,7 +93,15 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (GameManager.currentGold >= cubeData.cost)
         {
-            isButtonActive = true;
+            if(timeToBuy  > 0)
+            {
+                isButtonActive = false;
+            }
+            else
+            {
+                isButtonActive = true;
+            }
+            
             noGoldImage.enabled = false;
         }
         else if (GameManager.currentGold < cubeData.cost)

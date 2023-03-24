@@ -150,6 +150,7 @@ MonoBehaviour:
   cubeData: {fileID: 11400000, guid: c3c8ff15884769d4a8d2295b2a6a31ad, type: 2}
   health: 0
   countdown: 0
+  dieAudioSource: {fileID: 471856486399392587, guid: 1e22cf75cd44597489884af92f70f2cf, type: 3}
   bonusDamage: 10
   bulletDecoratorColor: {r: 0.9607843, g: 0.6392157, b: 0.003921569, a: 1}
 --- !u!1 &7620120215482816161

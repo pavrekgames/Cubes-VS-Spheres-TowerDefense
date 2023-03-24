@@ -41,9 +41,13 @@ public class CubeCurrency : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        GameManager.currentGold += currencyValue;
-        OnGoldCubeCollected?.Invoke();
-        Destroy(gameObject);
+        if(GameManager.isGamePause == false)
+        {
+            GameManager.currentGold += currencyValue;
+            OnGoldCubeCollected?.Invoke();
+            Destroy(gameObject);
+        }
+       
     }
     
 }

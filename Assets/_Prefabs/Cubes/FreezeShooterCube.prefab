@@ -267,6 +267,7 @@ MonoBehaviour:
   cubeData: {fileID: 11400000, guid: 8286483009483e6498caba2fbfae934b, type: 2}
   health: 0
   countdown: 0
+  dieAudioSource: {fileID: 471856486399392587, guid: 1e22cf75cd44597489884af92f70f2cf, type: 3}
   bulletsObjectPool: {fileID: 0}
   bulletPrefab: {fileID: 5053742630542191512, guid: aedb247d0a51fcb4d906818584abb85f, type: 3}
   placeForBullet: {fileID: 1160798688515930947}
@@ -286,7 +287,7 @@ AudioSource:
   m_GameObject: {fileID: 2567218683516143559}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3341343007344103822, guid: a092237566559f7439aa2fe61f24400b, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
