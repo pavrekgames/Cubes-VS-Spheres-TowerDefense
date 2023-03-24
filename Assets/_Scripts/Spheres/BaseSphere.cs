@@ -19,6 +19,9 @@ public abstract class BaseSphere : MonoBehaviour
     [SerializeField] protected BaseCube currentCube;
     [SerializeField] protected LayerMask layerMask;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip eatSound;
+
     public enum SphereState
     {
         Move,
@@ -73,6 +76,7 @@ public abstract class BaseSphere : MonoBehaviour
             if (currentCube != null)
             {
                 Debug.Log("Inflict Damage");
+                audioSource.PlayOneShot(eatSound);
                 currentCube.ReceiveDamage(damage);
                 yield return new WaitForSeconds(attackFrequency);
             }
@@ -107,12 +111,15 @@ public abstract class BaseSphere : MonoBehaviour
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
-        if (currentState == SphereState.Attack)
+        if (collision.CompareTag("Cube"))
         {
-            currentState = SphereState.Move;
-            currentCube = null;
-            StopCoroutine(InflictDamage());
-        }
+            if (currentState == SphereState.Attack)
+            {
+                currentState = SphereState.Move;
+                currentCube = null;
+                StopCoroutine(InflictDamage());
+            }
+        } 
     }
 
     public void FreezeState()

@@ -8,8 +8,9 @@ public class MultiLinesBullet : BaseBullet
     public Transform lineTarget;
     [SerializeField] private bool hasLineTarget = false;
 
-    private void Start()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         hasLineTarget = false;
     }
     private void Update()

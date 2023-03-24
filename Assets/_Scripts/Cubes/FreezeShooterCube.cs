@@ -13,6 +13,7 @@ public class FreezeShooterCube : SimpleShooterCube
     {
         GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.freezeBullets, bulletsObjectPool.bulletPools[1]);
         SetBullet(newBullet);
+        audioSource.PlayOneShot(shootSound);
     }
 
 }

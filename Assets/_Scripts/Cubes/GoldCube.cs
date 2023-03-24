@@ -26,7 +26,7 @@ public class GoldCube : BaseCube
             cubeDirectionIndex = Random.Range(1, 4);
             spawnForce = Random.Range(5, 11);
             SetCubeDirection(newCubeCurrency);
-            countdown = Random.Range(cubeData.countdown, 21); 
+            countdown = Random.Range(cubeData.countdown, 5); 
     }
 
     void Countdown()

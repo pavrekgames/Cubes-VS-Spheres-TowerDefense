@@ -7,6 +7,9 @@ using UnityEditor.Experimental.GraphView;
 public class CubeFactoryTest : MonoBehaviour
 {
     public static CubeFactoryTest instance;
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip plantSound;
+
 
     public List<CubeData> cubes = new List<CubeData>();
 
@@ -32,7 +35,8 @@ public class CubeFactoryTest : MonoBehaviour
             {
                 GameObject newCube = Instantiate(currentCube.cubePrefab, selectedTile.transform.position, selectedTile.transform.rotation, cubesParent);
                 GameManager.currentGold -= currentCube.cost;
-                selectedTile.GetComponent<Tile>().currentCube = currentCube.cubePrefab;
+                selectedTile.GetComponent<Tile>().currentCube = newCube;
+                audioSource.PlayOneShot(plantSound);
                 OnCubeBuilt?.Invoke();
                 currentCube = null;
             }

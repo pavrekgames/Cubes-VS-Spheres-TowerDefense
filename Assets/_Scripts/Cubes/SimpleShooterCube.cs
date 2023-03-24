@@ -12,6 +12,8 @@ public class SimpleShooterCube : BaseCube
     [SerializeField] protected Transform placeForBullet;
     [SerializeField] protected Transform bulletsParent;
     [SerializeField] protected float bulletSpeed;
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip shootSound;
 
     [Header("Enemy Target")]
     [SerializeField] protected LayerMask layerMask;
@@ -33,17 +35,20 @@ public class SimpleShooterCube : BaseCube
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, layerMask);
 
-        if (hit.collider.GetComponent<BaseSphere>())
+        if(hit.collider != null)
         {
-            Shoot();
+            if (hit.collider.GetComponent<BaseSphere>())
+            {
+                Shoot();
+            }
         }
-
     }
 
     protected virtual void Shoot()
     {
         GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.simpleBullets, bulletsObjectPool.bulletPools[0]);
         SetBullet(newBullet);
+        audioSource.PlayOneShot(shootSound);
         
     }
 

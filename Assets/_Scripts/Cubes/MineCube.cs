@@ -8,6 +8,8 @@ public class MineCube : BaseCube
     [SerializeField] private Color readyMineColor;
     [SerializeField] private LayerMask layerMask;
 
+    [SerializeField] private GameObject explodeAudioSource;
+
     public enum MineState
     {
         SleepMine,
@@ -46,9 +48,23 @@ public class MineCube : BaseCube
     {
         if (collision.CompareTag("Sphere") && currentMineState == MineState.ReadyMine)
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            KillEnemy(collision);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Sphere") && currentMineState == MineState.ReadyMine)
+        {
+            KillEnemy(collision);
+        }
+    }
+
+    private void KillEnemy(Collider2D enemy)
+    {
+        GameObject newAudioSource = Instantiate(explodeAudioSource, transform.position, transform.rotation);
+        Destroy(enemy.gameObject);
+        Destroy(gameObject);
     }
 
 }

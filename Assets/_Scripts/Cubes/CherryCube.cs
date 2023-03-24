@@ -6,6 +6,7 @@ public class CherryCube : BaseCube
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform cherryBomb;
+    [SerializeField] private GameObject explodeAudioSource;
     protected override void Update()
     {
         base.Update();
@@ -31,11 +32,13 @@ public class CherryCube : BaseCube
             foreach (var enemy in rangeCheck)
             {
                 Destroy(enemy.gameObject);
-            }
-
-            Destroy(gameObject);
+            }  
 
         }
+
+        GameObject newAudioSource = Instantiate(explodeAudioSource, transform.position, transform.rotation);
+        Destroy(gameObject);
+
     }
 
 }

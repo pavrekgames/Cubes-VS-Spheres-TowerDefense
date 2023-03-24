@@ -30,8 +30,13 @@ public class PearCube : BaseCube
 
             if (hit.collider != null)
             {
-                rangeCheck[0] = hit.collider.gameObject.GetComponent<Collider2D>();
-                hasTarget = true;
+                if(rangeCheck.Length == 0)
+                {
+                    rangeCheck = new Collider2D[1];
+                    rangeCheck[0] = hit.collider.gameObject.GetComponent<Collider2D>();
+                    hasTarget = true;
+                }
+                
             }
 
         }

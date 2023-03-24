@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoubleShooterCube : SimpleShooterCube
@@ -9,10 +10,13 @@ public class DoubleShooterCube : SimpleShooterCube
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, layerMask);
 
-        if (hit.collider.GetComponent<BaseSphere>())
+        if(hit.collider != null)
         {
-            StartCoroutine(DoubleShoot());
-        }
+            if (hit.collider.GetComponent<BaseSphere>())
+            {
+                StartCoroutine(DoubleShoot());
+            }
+        } 
     }
 
     private IEnumerator DoubleShoot()

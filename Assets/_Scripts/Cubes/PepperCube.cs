@@ -6,6 +6,7 @@ public class PepperCube : BaseCube
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform pepperBomb;
+    [SerializeField] private GameObject explodeAudioSource;
     protected override void Update()
     {
         base.Update();
@@ -33,14 +34,14 @@ public class PepperCube : BaseCube
         {
             foreach (var enemy in rangeCheck)
             {
-                
                 Destroy(enemy.gameObject);
             }
-
-            StopCoroutine(KillEnemies());
-            Destroy(gameObject);
-
         }
+
+        StopCoroutine(KillEnemies());
+        GameObject newAudioSource = Instantiate(explodeAudioSource, transform.position, transform.rotation);
+        Destroy(gameObject);
+
     }
 
 }
