@@ -15,6 +15,7 @@ MonoBehaviour:
   health: 100
   cost: 100
   timeToBuy: 20
-  startTimeToBuy: 30
+  startTimeToBuy: 20
   countdown: 1.5
   cubePrefab: {fileID: 1361213761600858267, guid: e7ed59226edba864a87b82c28e658da6, type: 3}
+  transparentPrefab: {fileID: 2099379156392121514, guid: 8db574644ce2b72458025462db923ece, type: 3}

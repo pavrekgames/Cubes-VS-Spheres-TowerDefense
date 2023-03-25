@@ -24,7 +24,9 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         cubeFactory = CubeFactory.instance;
         defaultColor = buttonImage.color;
 
-        CubeFactory.OnCubeBuilt += SetTimeToBuy;
+        IsButtonActive();
+
+        //CubeFactory.OnCubeBuilt += SetTimeToBuy;
         CubeFactory.OnCubeBuilt += SetButton;
         CubeCurrency.OnGoldCubeCollected += SetButton;
     }
@@ -39,7 +41,7 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             timeToBuyImage.fillAmount = timeToBuy / cubeData.timeToBuy;
         }
 
-        if(timeToBuy <= 0 && isButtonActive == false && GameManager.currentGold >= cubeData.cost)
+        if (timeToBuy <= 0 && isButtonActive == false && GameManager.currentGold >= cubeData.cost)
         {
             isButtonActive = true;
         }
@@ -64,6 +66,16 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             if (isButtonActive && GameManager.currentGold >= cubeData.cost)
             {
                 cubeFactory.currentCube = cubeData;
+
+                if(cubeFactory.currentTransparentCube == null)
+                {
+                    GameObject transparentCube = Instantiate(cubeData.transparentPrefab);
+                    cubeFactory.currentTransparentCube = transparentCube;
+                }
+                else
+                {
+                    Destroy(cubeFactory.currentTransparentCube);
+                }
             }
         }
    
@@ -93,21 +105,23 @@ public class CubeSlotButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (GameManager.currentGold >= cubeData.cost)
         {
-            if(timeToBuy  > 0)
-            {
-                isButtonActive = false;
-            }
-            else
-            {
-                isButtonActive = true;
-            }
-            
+            isButtonActive = true;
             noGoldImage.enabled = false;
+            SetTimeToBuy();
         }
         else if (GameManager.currentGold < cubeData.cost)
         {
             isButtonActive = false;
             noGoldImage.enabled = true;
+            SetTimeToBuy();
+        }
+    }
+
+    private void IsButtonActive()
+    {
+        if(timeToBuy > 0)
+        {
+            isButtonActive = false;
         }
     }
   

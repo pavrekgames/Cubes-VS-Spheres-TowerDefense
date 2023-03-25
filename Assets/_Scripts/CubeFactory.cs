@@ -17,6 +17,7 @@ public class CubeFactory : MonoBehaviour
     [SerializeField] private HudUI hudUI;
 
     public CubeData currentCube;
+    public GameObject currentTransparentCube;
     public GameObject selectedTile;
     [SerializeField] private Transform cubesParent;
 
@@ -37,6 +38,7 @@ public class CubeFactory : MonoBehaviour
                 GameManager.currentGold -= currentCube.cost;
                 selectedTile.GetComponent<Tile>().currentCube = newCube;
                 audioSource.PlayOneShot(plantSound);
+                Destroy(currentTransparentCube);
                 OnCubeBuilt?.Invoke();
                 currentCube = null;
             }

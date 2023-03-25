@@ -11,5 +11,6 @@ public class CubeData : ScriptableObject
     public float startTimeToBuy;
     public float countdown;
     public GameObject cubePrefab;
+    public GameObject transparentPrefab;
    
 }

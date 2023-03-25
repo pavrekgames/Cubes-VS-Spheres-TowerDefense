@@ -18,3 +18,4 @@ MonoBehaviour:
   startTimeToBuy: 20
   countdown: 20
   cubePrefab: {fileID: 7421566303561124359, guid: 2e418fef667a2e448a9ce5151b34d710, type: 3}
+  transparentPrefab: {fileID: 1817122166595878247, guid: 7a9689d99b07b394fb32c28573b2b52a, type: 3}
