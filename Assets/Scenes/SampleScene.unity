@@ -11059,13 +11059,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spheresParent: {fileID: 755454698}
   spheres:
-  - {fileID: 11400000, guid: 81a8d959d37cf44429ad832e63819320, type: 2}
-  - {fileID: 11400000, guid: 8ad4b52ede8f87e42b5af8b14492747f, type: 2}
-  - {fileID: 11400000, guid: a03c433282ab98b4eb69d6d052330a0a, type: 2}
-  - {fileID: 11400000, guid: ff69e190c1b6ff74ba16647197f0562a, type: 2}
-  - {fileID: 11400000, guid: 7c51760ab609c8d40ac8e462e071dc60, type: 2}
-  - {fileID: 11400000, guid: 55676d0db848265478a2764a232e0155, type: 2}
-  - {fileID: 11400000, guid: fb79e8b0595f55945bb96000d43fcb83, type: 2}
+  - {fileID: 2587543347849088343, guid: bc449f4fad9a1014b83e668f2e86499d, type: 3}
+  - {fileID: 4498745339844935754, guid: abc76df57466a124ba5826cfda3228a1, type: 3}
+  - {fileID: 8829270999644301331, guid: 06e0e180b57500643a727e4bae7a2bc7, type: 3}
+  - {fileID: 261311578160944542, guid: 9b5fff9381f02a94cbca01671f46e235, type: 3}
+  - {fileID: 242643393622613991, guid: 17f24d2376122fd48a9efcb197d63c22, type: 3}
+  - {fileID: 5287977431620056353, guid: 1dddddc85d4bfe141b380d9cb38ef92c, type: 3}
+  - {fileID: 687487739704715346, guid: addab4af133370446b7fcb3f90761b98, type: 3}
   enemyPoints:
   - {fileID: 424617915}
   - {fileID: 1234706307}
@@ -11073,6 +11073,13 @@ MonoBehaviour:
   - {fileID: 2139342386}
   - {fileID: 1190317742}
   randomEnemyPoint: 1
+  simpleSphere: SimpleSphere
+  armoredOrangeSphere: ArmoredOrangeSphere
+  armoredGreySphere: ArmoredGreySphere
+  newspaperSphere: NewspaperSphere
+  polemanSphere: PolemanSphere
+  boxExplodeSphere: BoxExplodeSphere
+  armoredSportmanSphere: ArmoredSportmanSphere
 --- !u!1 &1602149428
 GameObject:
   m_ObjectHideFlags: 0
