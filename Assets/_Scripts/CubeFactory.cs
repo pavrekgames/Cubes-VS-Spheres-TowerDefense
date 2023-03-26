@@ -7,19 +7,19 @@ using UnityEditor.Experimental.GraphView;
 public class CubeFactory : MonoBehaviour
 {
     public static CubeFactory instance;
-    [SerializeField] protected AudioSource audioSource;
-    [SerializeField] protected AudioClip plantSound;
-
 
     public List<CubeData> cubes = new List<CubeData>();
-
-    [Header("References")]
-    [SerializeField] private HudUI hudUI;
-
     public CubeData currentCube;
+
     public GameObject currentTransparentCube;
     public GameObject selectedTile;
     [SerializeField] private Transform cubesParent;
+
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip plantSound;
+
+    [Header("References")]
+    [SerializeField] private HudUI hudUI;
 
     public static event Action OnCubeBuilt;
 
@@ -28,7 +28,7 @@ public class CubeFactory : MonoBehaviour
         if (instance == null) { instance = this; } else { Destroy(gameObject); }
     }
 
-   public void BuildCube()
+    public void BuildCube()
     {
         if (currentCube != null && GameManager.isGamePause == false)
         {

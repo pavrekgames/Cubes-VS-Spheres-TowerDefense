@@ -10,5 +10,5 @@ public class BulletDecorator : BaseBullet
     {
         bullet = this;
     }
- 
+
 }

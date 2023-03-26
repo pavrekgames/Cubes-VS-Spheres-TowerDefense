@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class PolemanSphere : BaseSphere
 {
+    [Header("PolemanSphere Attributes")]
     [SerializeField] private SpriteRenderer poleRenderer;
     [SerializeField] private bool hasJumped = false;
     [SerializeField] private int jumpSpeed = 1;
@@ -18,7 +19,6 @@ public class PolemanSphere : BaseSphere
         currentState = SphereState.MovePole;
     }
 
-    
     protected override void Update()
     {
         if (currentState == SphereState.Move || currentState == SphereState.MovePole)
@@ -36,7 +36,7 @@ public class PolemanSphere : BaseSphere
         {
             if (currentState == SphereState.MovePole && hasJumped == false)
             {
-               StartCoroutine(JumpOverCube(collision));
+                StartCoroutine(JumpOverCube(collision));
             }
         }
     }
@@ -57,18 +57,17 @@ public class PolemanSphere : BaseSphere
 
     private void UpdateTarget()
     {
-        if(hasJumped == true)
+        if (hasJumped == true)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, 0.2f, layerMask);
 
-            if(hit.collider != null && currentState == SphereState.Move)
+            if (hit.collider != null && currentState == SphereState.Move)
             {
-                Debug.Log("Attack");
                 currentState = SphereState.Attack;
                 currentCube = hit.collider.GetComponent<BaseCube>();
                 Attack();
             }
-            else if(hit.collider == null && currentState == SphereState.Attack)
+            else if (hit.collider == null && currentState == SphereState.Attack)
             {
                 currentState = SphereState.Move;
                 currentCube = null;

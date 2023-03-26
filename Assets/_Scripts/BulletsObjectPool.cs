@@ -33,6 +33,7 @@ public class BulletsObjectPool : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
         CreateBullets(simpleBullets, bulletPools[0]);

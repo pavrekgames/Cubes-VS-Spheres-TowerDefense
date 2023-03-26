@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BoxExplodeSphere : BaseSphere
 {
+    [Header("BoxExplodeSphere Attributes")]
     [SerializeField] private Transform boxBomb;
     [SerializeField] private int explodeDamage = 50;
+
     protected override void Death()
     {
-        if (health <= 0) { StartCoroutine(Explode()); } 
+        if (health <= 0) { StartCoroutine(Explode()); }
     }
 
     private IEnumerator Explode()

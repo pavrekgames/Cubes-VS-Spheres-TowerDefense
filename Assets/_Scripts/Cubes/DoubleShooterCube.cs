@@ -10,13 +10,13 @@ public class DoubleShooterCube : SimpleShooterCube
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, layerMask);
 
-        if(hit.collider != null)
+        if (hit.collider != null)
         {
             if (hit.collider.GetComponent<BaseSphere>())
             {
                 StartCoroutine(DoubleShoot());
             }
-        } 
+        }
     }
 
     private IEnumerator DoubleShoot()

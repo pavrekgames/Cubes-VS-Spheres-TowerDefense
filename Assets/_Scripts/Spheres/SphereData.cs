@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="SphereEnemy", menuName ="SphereEnemy")]
+[CreateAssetMenu(fileName = "SphereEnemy", menuName = "SphereEnemy")]
 public class SphereData : ScriptableObject
 {
     [Header("Basic")]
@@ -21,6 +21,5 @@ public class SphereData : ScriptableObject
     public float freezeWalkSpeed;
     public float freezeRunSpeed;
     public float freezeAttackFrequency;
-
 
 }

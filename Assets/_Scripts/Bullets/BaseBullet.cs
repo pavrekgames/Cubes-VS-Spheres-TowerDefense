@@ -22,6 +22,7 @@ public abstract class BaseBullet : MonoBehaviour
         }
 
     }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Sphere"))

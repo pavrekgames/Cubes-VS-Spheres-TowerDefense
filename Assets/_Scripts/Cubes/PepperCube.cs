@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PepperCube : BaseCube
 {
+    [Header("PepperCube Attributes")]
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform pepperBomb;
     [SerializeField] private GameObject explodeAudioSource;
+
     protected override void Update()
     {
         base.Update();
@@ -18,9 +20,8 @@ public class PepperCube : BaseCube
         else
         {
             StartCoroutine(KillEnemies());
-                
-        }
 
+        }
     }
 
     private IEnumerator KillEnemies()
@@ -28,7 +29,7 @@ public class PepperCube : BaseCube
         pepperBomb.localScale = new Vector2(25, pepperBomb.transform.localScale.y);
         yield return new WaitForSeconds(0.5f);
 
-        Collider2D[] rangeCheck = Physics2D.OverlapBoxAll(transform.position, new Vector2(100,1), 0, layerMask);
+        Collider2D[] rangeCheck = Physics2D.OverlapBoxAll(transform.position, new Vector2(100, 1), 0, layerMask);
 
         if (rangeCheck.Length != 0)
         {

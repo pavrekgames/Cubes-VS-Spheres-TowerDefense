@@ -8,14 +8,13 @@ public class TransparentCube : MonoBehaviour
 
     private void Start()
     {
-        mainCamera = Camera.main;        
+        mainCamera = Camera.main;
     }
+
     void Update()
     {
-
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPosition.z = 0;
-        transform.position = mouseWorldPosition; 
-        
+        transform.position = mouseWorldPosition;
     }
 }

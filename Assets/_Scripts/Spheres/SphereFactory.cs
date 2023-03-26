@@ -26,7 +26,7 @@ public class SphereFactory : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -36,16 +36,10 @@ public class SphereFactory : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         AddSpheresToDictionary();
         StartCoroutine(Wave0());
-    }
-
-    void Update()
-    {
-       
     }
 
     private IEnumerator Wave0()
@@ -70,7 +64,6 @@ public class SphereFactory : MonoBehaviour
         yield return new WaitForSeconds(20);
         StartCoroutine(Wave1());
         StopCoroutine(Wave0());
-
     }
 
     private IEnumerator Wave1()
@@ -134,13 +127,11 @@ public class SphereFactory : MonoBehaviour
         CreateSphere(pairSpheres[armoredSportmanSphere], 3);
         CreateSphere(pairSpheres[polemanSphere], 1);
         yield return new WaitForSeconds(5);
-
-
     }
 
     private void CreateSphere(GameObject sphere, int spheresAmount)
     {
-        for(int i=0; i < spheresAmount; i++)
+        for (int i = 0; i < spheresAmount; i++)
         {
             randomEnemyPoint = Random.Range(0, 5);
             GameObject newSphere = Instantiate(sphere, enemyPoints[randomEnemyPoint].position, enemyPoints[randomEnemyPoint].rotation, spheresParent);
@@ -157,6 +148,5 @@ public class SphereFactory : MonoBehaviour
         pairSpheres.Add(boxExplodeSphere, spheres[5]);
         pairSpheres.Add(armoredSportmanSphere, spheres[6]);
     }
-
 
 }

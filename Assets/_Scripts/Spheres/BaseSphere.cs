@@ -5,6 +5,7 @@ using System;
 
 public abstract class BaseSphere : MonoBehaviour
 {
+    [Header("Base Attributes")]
     [SerializeField] protected SpriteRenderer spriteRender;
     [SerializeField] protected SphereData sphereData;
     [SerializeField] protected SphereFactory sphereFactory;
@@ -13,17 +14,20 @@ public abstract class BaseSphere : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected float attackFrequency;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip eatSound;
+
+    [Header("Sphere Movement")]
     [SerializeField] protected float currentSpeed;
     [SerializeField] protected float walkSpeed;
     [SerializeField] protected float runSpeed;
 
+    [Header("Cube Target")]
     [SerializeField] protected BaseCube currentCube;
     [SerializeField] protected LayerMask layerMask;
 
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip eatSound;
-
     public static event Action OnGotFinishLine;
+
     public enum SphereState
     {
         Move,
@@ -77,13 +81,11 @@ public abstract class BaseSphere : MonoBehaviour
         {
             if (currentCube != null)
             {
-                Debug.Log("Inflict Damage");
                 audioSource.PlayOneShot(eatSound);
                 currentCube.ReceiveDamage(damage);
                 yield return new WaitForSeconds(attackFrequency);
             }
-            
-        } 
+        }
     }
 
     public void ReceiveDamage(int damage)
@@ -93,7 +95,7 @@ public abstract class BaseSphere : MonoBehaviour
 
     protected virtual void Death()
     {
-        if(health <= 0) { Destroy(gameObject); }
+        if (health <= 0) { Destroy(gameObject); }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -123,7 +125,7 @@ public abstract class BaseSphere : MonoBehaviour
                 currentCube = null;
                 StopCoroutine(InflictDamage());
             }
-        } 
+        }
     }
 
     public void FreezeState()

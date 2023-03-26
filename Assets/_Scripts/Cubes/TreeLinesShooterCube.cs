@@ -26,11 +26,12 @@ public class TreeLinesShooterCube : SimpleShooterCube
 
         if (hit.collider != null || hitUp.collider != null || hitDown.collider != null)
         {
-                Shoot();
-                MultiLinesShoot(placeforBullet2, upLineTarget);
-                MultiLinesShoot(placeforBullet3, downLineTarget);
+            Shoot();
+            MultiLinesShoot(placeforBullet2, upLineTarget);
+            MultiLinesShoot(placeforBullet3, downLineTarget);
         }
     }
+
     private void MultiLinesShoot(Transform placeforBullet, Transform lineTarget)
     {
         GameObject newBullet = bulletsObjectPool.GetPooledObject(bulletsObjectPool.multiLinesbullets, bulletsObjectPool.bulletPools[2]);
@@ -38,7 +39,7 @@ public class TreeLinesShooterCube : SimpleShooterCube
         audioSource.PlayOneShot(shootSound);
     }
 
-    private void SetMultiLinesBullet(GameObject bullet,Transform placeForBullet, Transform lineTarget)
+    private void SetMultiLinesBullet(GameObject bullet, Transform placeForBullet, Transform lineTarget)
     {
         bullet.transform.position = placeForBullet.transform.position;
         bullet.transform.rotation = placeForBullet.transform.rotation;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArmoredSphere : BaseSphere
 {
-
+    [Header("ArmoredSphere Attributes")]
     [SerializeField] protected SpriteRenderer armorSpriteRenderer;
 
     protected override void Start()
@@ -17,7 +17,6 @@ public class ArmoredSphere : BaseSphere
     {
         base.Update();
         UpdateSphereState();
-
     }
 
     protected virtual void UpdateSphereState()

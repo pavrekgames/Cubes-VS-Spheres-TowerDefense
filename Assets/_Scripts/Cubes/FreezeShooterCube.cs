@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreezeShooterCube : SimpleShooterCube
 {
-   protected override void Update()
+    protected override void Update()
     {
         base.Update();
     }

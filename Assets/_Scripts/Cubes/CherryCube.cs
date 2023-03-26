@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class CherryCube : BaseCube
 {
+    [Header("CherryCube Attributes")]
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private Transform cherryBomb;
     [SerializeField] private GameObject explodeAudioSource;
+
     protected override void Update()
     {
         base.Update();
 
-        if(countdown > 0)
+        if (countdown > 0)
         {
             countdown -= Time.deltaTime;
-            cherryBomb.localScale = cherryBomb.localScale += new Vector3(0.01f,0.01f, 0f);
+            cherryBomb.localScale = cherryBomb.localScale += new Vector3(0.01f, 0.01f, 0f);
         }
         else
         {
             KillEnemies();
         }
-
     }
 
     private void KillEnemies()
@@ -32,7 +33,7 @@ public class CherryCube : BaseCube
             foreach (var enemy in rangeCheck)
             {
                 Destroy(enemy.gameObject);
-            }  
+            }
 
         }
 
@@ -40,5 +41,4 @@ public class CherryCube : BaseCube
         Destroy(gameObject);
 
     }
-
 }

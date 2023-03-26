@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     public static bool isGamePause = true;
     public static bool isGameOver = false;
 
+    [Header("Canvases")]
     [SerializeField] private Canvas mainMenuCanvas;
     [SerializeField] private Canvas gameOverCanvas;
 
+    [Header("Audio")]
     [SerializeField] private AudioSource backgroundAudioSource;
     [SerializeField] private AudioSource buttonAudioSource;
     [SerializeField] private AudioClip buttonSound;
@@ -28,19 +30,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0) { isGamePause = true; } else { isGamePause = false; } 
+        if (Time.timeScale == 0) { isGamePause = true; } else { isGamePause = false; }
     }
 
     public void PauseGame()
     {
-        if(isGameOver == false)
+        if (isGameOver == false)
         {
             buttonAudioSource.PlayOneShot(buttonSound);
             mainMenuCanvas.enabled = true;
             backgroundAudioSource.Pause();
             Time.timeScale = 0;
         }
-        
     }
 
     public void UnPauseGame()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FireStumpCube : BaseCube
 {
-
+    [Header("FireStump Attributes")]
     [SerializeField] private int bonusDamage = 10;
     [SerializeField] private Color bulletDecoratorColor;
 

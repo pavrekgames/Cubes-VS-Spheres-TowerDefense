@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private CubeFactory cubeFactory;
     public GameObject currentCube;
+
     void Start()
     {
         cubeFactory = CubeFactory.instance;
@@ -14,21 +15,18 @@ public class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         cubeFactory.selectedTile = this.gameObject;
-        //Debug.Log("Enter");
     }
 
     private void OnMouseDown()
     {
-        if(currentCube == null)
+        if (currentCube == null)
         {
             cubeFactory.BuildCube();
         }
-
     }
 
     private void OnMouseExit()
     {
         cubeFactory.selectedTile = null;
-        //Debug.Log("Exit");
     }
 }

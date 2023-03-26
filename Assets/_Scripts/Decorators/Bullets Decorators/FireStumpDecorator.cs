@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class FireStumpDecorator : BulletDecorator
 {
-     public int bonusDamage = 10;
-     public Color bulletDecoratorColor;
+    [Header("FireStump Decorator")]
+    public int bonusDamage = 10;
+    public Color bulletDecoratorColor;
 
     protected override void OnEnable()
     {
         bulletRenderer = GetComponent<SpriteRenderer>();
-
     }
+
     public override void SetBullet()
     {
         bulletRenderer = GetComponent<SpriteRenderer>();
         damage = bonusDamage;
         bulletRenderer.color = bulletDecoratorColor;
-
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)

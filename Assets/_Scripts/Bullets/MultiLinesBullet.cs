@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MultiLinesBullet : BaseBullet
 {
+    [Header("Multilines Attributes")]
     public int bulletSpeed;
     public Transform lineTarget;
     [SerializeField] private bool hasLineTarget = false;
@@ -13,9 +14,10 @@ public class MultiLinesBullet : BaseBullet
         base.OnEnable();
         hasLineTarget = false;
     }
+
     private void Update()
     {
-        if(lineTarget != null)
+        if (lineTarget != null)
         {
             float distance = Vector2.Distance(lineTarget.position, transform.position);
             Vector2 lineDirection = lineTarget.position - transform.position;
@@ -29,7 +31,7 @@ public class MultiLinesBullet : BaseBullet
                 hasLineTarget = true;
             }
 
-            if(hasLineTarget == true)
+            if (hasLineTarget == true)
             {
                 transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime, Space.World);
             }
@@ -52,6 +54,5 @@ public class MultiLinesBullet : BaseBullet
                 gameObject.SetActive(false);
             }
         }
-
     }
 }

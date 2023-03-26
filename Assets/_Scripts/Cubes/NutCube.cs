@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class NutCube : BaseCube
 {
+    [Header("NutCube Attributes")]
     [SerializeField] private SpriteRenderer cubeSpriteRenderer;
-
-    [Header("Color States")]
     [SerializeField] private Color halfHealthColor;
     [SerializeField] private Color smallHealthColor;
-  protected override void Start()
+
+    protected override void Start()
     {
         base.Start();
     }
 
-  protected override void Update()
+    protected override void Update()
     {
         base.Update();
         NutCubeState();

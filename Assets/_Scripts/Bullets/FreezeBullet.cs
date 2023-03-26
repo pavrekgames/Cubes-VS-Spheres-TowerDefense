@@ -7,7 +7,6 @@ public class FreezeBullet : BaseBullet
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Sphere"))
         {
             if (collision.GetComponent<BaseSphere>())

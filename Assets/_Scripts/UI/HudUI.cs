@@ -7,7 +7,6 @@ public class HudUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentGoldText;
 
-
     void Start()
     {
         CubeCurrency.OnGoldCubeCollected += UpdatecCurrentGold;

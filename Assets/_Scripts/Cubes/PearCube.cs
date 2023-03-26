@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class PearCube : BaseCube
 {
+    [Header("PearCube Attributes")]
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private bool hasTarget = false;
     [SerializeField] private float pearSpeed = 5f;
     public Collider2D[] rangeCheck;
-    
+
     protected override void Start()
     {
         base.Start();
@@ -24,19 +25,19 @@ public class PearCube : BaseCube
 
     private void UpdateTarget()
     {
-        if(hasTarget == false)
+        if (hasTarget == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 2, layerMask);
 
             if (hit.collider != null)
             {
-                if(rangeCheck.Length == 0)
+                if (rangeCheck.Length == 0)
                 {
                     rangeCheck = new Collider2D[1];
                     rangeCheck[0] = hit.collider.gameObject.GetComponent<Collider2D>();
                     hasTarget = true;
                 }
-                
+
             }
 
         }
@@ -45,12 +46,12 @@ public class PearCube : BaseCube
 
     private void MoveToTarget()
     {
-        if(hasTarget == true)
+        if (hasTarget == true)
         {
             float distance = Vector2.Distance(rangeCheck[0].transform.position, transform.position);
             Vector2 target = rangeCheck[0].transform.position - transform.position;
 
-            if(distance > 0.2f)
+            if (distance > 0.2f)
             {
                 transform.Translate(target * pearSpeed * Time.deltaTime, Space.World);
             }

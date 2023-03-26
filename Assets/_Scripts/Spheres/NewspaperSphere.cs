@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NewspaperSphere : ArmoredSphere
 {
+    [Header("NewspaperSphere Attributes")]
     [SerializeField] private float fastFrequency = 0.5f;
+
     protected override void Update()
     {
         base.Update();
@@ -17,7 +19,6 @@ public class NewspaperSphere : ArmoredSphere
             armorSpriteRenderer.enabled = false;
             currentSpeed = runSpeed;
             attackFrequency = fastFrequency;
-            Debug.Log("Faster");
         }
     }
 

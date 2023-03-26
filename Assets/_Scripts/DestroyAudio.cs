@@ -7,15 +7,15 @@ public class DestroyAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip explodeSound;
+
     void Start()
     {
         audioSource.PlayOneShot(explodeSound);
     }
 
-    
     void Update()
     {
-        if(audioSource.isPlaying == false)
+        if (audioSource.isPlaying == false)
         {
             Destroy(gameObject);
         }

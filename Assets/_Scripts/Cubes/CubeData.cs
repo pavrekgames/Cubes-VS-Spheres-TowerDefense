@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Cube",menuName ="CubeTurret")]
+[CreateAssetMenu(fileName = "Cube", menuName = "CubeTurret")]
 public class CubeData : ScriptableObject
 {
     public float health;
@@ -12,5 +12,5 @@ public class CubeData : ScriptableObject
     public float countdown;
     public GameObject cubePrefab;
     public GameObject transparentPrefab;
-   
+
 }

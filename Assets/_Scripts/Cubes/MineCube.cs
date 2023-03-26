@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MineCube : BaseCube
 {
+    [Header("MineCube Attributes")]
     [SerializeField] private SpriteRenderer mineSpriteRenderer;
     [SerializeField] private Color readyMineColor;
     [SerializeField] private LayerMask layerMask;
-
     [SerializeField] private GameObject explodeAudioSource;
 
     public enum MineState
@@ -22,7 +22,7 @@ public class MineCube : BaseCube
     {
         base.Update();
         Countdown();
-       
+
     }
 
     private void Countdown()

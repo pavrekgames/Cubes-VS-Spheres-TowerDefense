@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GoldCube : BaseCube
 {
+    [Header("GoldCube Attributes")]
     [SerializeField] private GameObject cubeCurrency;
     [SerializeField] private float spawnForce = 5f;
     [SerializeField] private int cubeDirectionIndex = 1;
-    
-   protected override void Start()
+
+    protected override void Start()
     {
         base.Start();
         spawnForce = 5f;
@@ -22,16 +23,16 @@ public class GoldCube : BaseCube
 
     void ProduceCurrency()
     {
-            GameObject newCubeCurrency = Instantiate(cubeCurrency, transform.position, Quaternion.identity);
-            cubeDirectionIndex = Random.Range(1, 4);
-            spawnForce = Random.Range(5, 11);
-            SetCubeDirection(newCubeCurrency);
-            countdown = Random.Range(cubeData.countdown, 5); 
+        GameObject newCubeCurrency = Instantiate(cubeCurrency, transform.position, Quaternion.identity);
+        cubeDirectionIndex = Random.Range(1, 4);
+        spawnForce = Random.Range(5, 11);
+        SetCubeDirection(newCubeCurrency);
+        countdown = Random.Range(cubeData.countdown, 5);
     }
 
     void Countdown()
     {
-        if(countdown > 0)
+        if (countdown > 0)
         {
             countdown -= Time.deltaTime;
         }
