@@ -7,7 +7,7 @@ The project is based on the Plants Vs Zombies game where you plant cubes (plants
 FEATURES:
 
 1. Various cubes (plants)
-  - Gold cube (sunflower) - Gold cube (sunflower) - This cube produces gold currency to plant other cubes (plants). The currency is moving at a random 
+  - Gold cube (sunflower) - This cube produces gold currency to plant other cubes (plants). The currency is moving at a random 
     speed and direction.
   - Nut cube (nut) - This cube has a lot of health to stop spheres. Spheres need to eat the nut for a long time to keep moving.
   - Simple shooter cube - This cube shoots one bullet with a certain frequency.
@@ -18,7 +18,7 @@ FEATURES:
   - Pear cube (Pear) - This cube is waiting for an enemy and when the sphere is close the pear cube goes to the enemy and kills him.
   - Cherry cube (Cherry) - This cube after some seconds kill all enemies in a certain range.
   - Pepper cube (Chilli Pepper) - This cube kills all enemies in the line.
-  - Fire Stump cube - TThis cube increases the damage of bullets when the bullets went through it.
+  - Fire Stump cube - This cube increases the damage of bullets when the bullets went through it.
  
 2. Various spheres (zombies)
   - Simple sphere - This sphere is slow and has default health.
@@ -48,3 +48,17 @@ USED DESIGN PATTERNS:
 6. Object Pooling Pattern - For creating bullets by shooters.
 7. Flyweight Pattern - Scriptable objects of cubes and spheres.
 8. Prototype Pattern - Scriptable objects of cubes and spheres.
+
+SCREENSHOTS
+
+
+![SpheresCubes_1](https://github.com/pavrekgames/Cubes-VS-Spheres-TowerDefense/assets/105421661/f67441a0-d217-4cf8-8eda-a7f6711845f5)
+
+![SpheresCubes_2](https://github.com/pavrekgames/Cubes-VS-Spheres-TowerDefense/assets/105421661/50336a88-9b42-409d-895c-291c3ce0b534)
+
+![SpheresCubes_3](https://github.com/pavrekgames/Cubes-VS-Spheres-TowerDefense/assets/105421661/8c89e0e2-adef-43ba-9417-c976b60d1e82)
+
+
+
+
+
